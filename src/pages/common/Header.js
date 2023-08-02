@@ -13,18 +13,21 @@ const Header = () => {
     const location = useLocation();
 
     // Show Nav on HamBurger and Hide on Cross Click
+    const bodyTag = document.querySelector('body')
     const [isActive, setIsActive] = useState(false);
     const handleShowNav = () => {
         setIsActive(!isActive)
+        bodyTag.classList.add('no-scroll')
     }
     const handleHideNav = () => {
         setIsActive(!isActive)
+        bodyTag.classList.remove('no-scroll')
     }
 
     // Small Logo on Scroll (Creating Function)
     const [scrollY, setScrollY] = useState(0)
     const [isScrolled, setIsScrolled] = useState(false)
-    
+
     const handleOnScroll = () => {
         const currentScrollValue = window.scrollY
         setScrollY(currentScrollValue)
@@ -35,6 +38,18 @@ const Header = () => {
             setIsScrolled(false)
         }
 
+    }
+
+    // Nav on Tab
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const handleWinResize = () => {
+        setWindowWidth(window.innerWidth)
+    }
+    const handleMobNav = () => {
+        const subMenuItem = document.querySelector('.header__nav__subMenu')
+        if(windowWidth > 849 && windowWidth < 1200 ){
+            subMenuItem.classList.toggle('visible')
+        }
     }
 
     // Calling Function
@@ -56,9 +71,19 @@ const Header = () => {
                         <IconCross/>
                     </div>
                     <div className="header__nav">
-                        <NavLink to="/">Le Quartier</NavLink>
-                        <NavLink to="/les-residences">Les Résidences</NavLink>
-                        <NavLink to="/les-actualites">Les Actualités</NavLink>
+                        <div className="header__nav__item">
+                            <NavLink to="/">Le Quartier</NavLink>
+                        </div>
+                        <div className="header__nav__item header__nav__item--hasSubMenu" onClick={handleMobNav}>
+                            <NavLink to="/les-residences">Les Résidences</NavLink>
+                            <div className="header__nav__subMenu">
+                                <NavLink to="/">Sub Menu 1</NavLink>
+                                <NavLink to="/">Sub Menu 2</NavLink>
+                            </div>
+                        </div>
+                        <div className="header__nav__item">
+                            <NavLink to="/les-actualites">Les Actualités</NavLink>
+                        </div>
                     </div>
                     <div className="header__social">
                         <a href="https://www.facebook.com/cogedim/" rel="noreferrer" className="header__social__item" target="_blank">

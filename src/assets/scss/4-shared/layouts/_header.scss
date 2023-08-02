@@ -89,44 +89,105 @@
             flex-direction: row;
             padding-bottom: 0;
         }
-        a{
+        &__item{
             position: relative;
-            color: $color-white;
-            text-decoration: none;
-            padding: 5px 0;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            font-weight: $fw-medium;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             @include resp('md'){
                 margin: 0 40px 0 0;
             }
             @include resp('lg'){
                 margin-right: 60px;
             }
-            &:before{
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: $color-white;
-                transition: width $time-fast;
-            }
-            &:last-child{
-                margin: 0;
-            }
-            &.active{
-                &:before{
-                    width: 100%;
+            & > a{
+                position: relative;
+                color: $color-white;
+                text-decoration: none;
+                padding: 5px 0;
+                text-transform: uppercase;
+                font-weight: $fw-medium;
+                @include resp('lg'){
+                    padding-bottom: 7px;
                 }
-            }
-            &:hover{
                 &:before{
-                    @include resp('lg'){
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: $color-white;
+                    transition: width $time-fast;
+                }
+                &:last-child{
+                    margin: 0;
+                }
+                &.active{
+                    &:before{
                         width: 100%;
                     }
                 }
+                &:hover{
+                    &:before{
+                        @include resp('lg'){
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            &--hasSubMenu{
+                &:hover{
+                    .header{
+                        &__nav{
+                            &__subMenu{
+                                @include resp('lg'){
+                                    top: 31px;
+                                    opacity: 1;
+                                    pointer-events: all;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__subMenu{
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            font-size: fz(13);
+            @include resp('md'){
+                position: absolute;
+                top: 40px;
+                left: 0;
+                background-color: $color-purple;
+                padding: 15px;
+                border-radius: 5px;
+                font-size: fz(14);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity $time-fast, top $time-fast;
+            }
+            a{
+                color: $color-white;
+                text-decoration: none;
+                padding-bottom: 10px;
+                display: block;
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                &:hover{
+                    @include resp('lg'){
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &.visible{
+                opacity: 1;
+                pointer-events: all;
+                top: 31px;
             }
         }
     }
