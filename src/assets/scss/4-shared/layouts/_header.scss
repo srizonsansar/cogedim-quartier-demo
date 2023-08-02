@@ -22,11 +22,60 @@
         }
     }
     &__mainBlock{
-        // display: none;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: $color-purple;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left $time-fast;
+        &.visible{
+            left: 0;
+        }
+        &__closeNav{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            svg{
+                width: 16px;
+                height: 16px;
+                fill: $color-white;
+            }
+        }
+    }
+    &__social{
+        display: flex;
+        justify-content: center;
+        &__item{
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: $color-white;
+            margin: 0 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-purple;
+            text-decoration: none;
+            font-size: fz(14);
+        }
     }
     &__nav{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
         a{
             color: $color-white;
+            text-decoration: none;
+            padding: 5px 0;
+            margin-bottom: 20px;
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
     }
     &__navLines{
