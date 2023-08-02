@@ -9,11 +9,11 @@ import Footer from './pages/common/Footer';
 // SCSS Files
 import './assets/scss/common.scss';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <Header/>
+    <Header />
     <AppRouter />
-    <Footer/>
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+    <Footer />
+  </React.StrictMode>
+);

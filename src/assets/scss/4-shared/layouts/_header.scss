@@ -1,0 +1,44 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    background-color: $color-purple;
+    padding: 25px 0;
+    &__container{
+        @extend %container;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    &__logo{
+        position: absolute;
+        left: calc(50% - 55px);
+        &__img{
+            width: 110px;
+            height: 110px;
+        }
+    }
+    &__mainBlock{
+        display: none;
+    }
+    &__navLines{
+        display: flex;
+        flex-direction: column;
+        &__line{
+            width: 28px;
+            height: 3px;
+            background-color: $color-white;
+            border-radius: 999px;
+            &--mid{
+                margin: 6px 0;
+            }
+        }
+    }
+}
+
+.homeIntro{
+    height: 2000px;
+}

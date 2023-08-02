@@ -1,14 +1,3 @@
-// Slider Root
-body{
-    overflow-x: hidden;
-}
-#root{
-    transition: transform $time-fast;
-    &.slide{
-        transform: translateX(200px);
-    }
-}
-
 // Line Breaks
 .break{
     display: block;
@@ -22,5 +11,12 @@ body{
     }
     @include resp('lg'){
         margin-bottom: 100px;
+    }
+}
+
+// No Scroll
+body{
+    &.no-scroll{
+        overflow: hidden;
     }
 }
