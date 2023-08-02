@@ -25,19 +25,7 @@ const Header = () => {
         <header className="header">
             <div className="header__container">
                 <a href="/" className="header__logo"><img src={MainLogo} className="header__logo__img" alt="Cogedim" /></a>
-                <div className="header__mainBlock">
-                    <div className="header__nav">
-                        <a href="/" className="header__nav__item">Le Quartier</a>
-                        <a href="/" className="header__nav__item">Les Résidences</a>
-                        <a href="/" className="header__nav__item">Les Actualités</a>
-                    </div>
-                    <Navigation />
-                    <div class="header__social">
-                        <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">F</a>
-                        <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">T</a>
-                        <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">I</a>
-                    </div>
-                </div>
+                <Navigation />
                 <div className="header__navLines" onClick={showNavBlock}>
                     <span class="header__navLines__line"></span>
                     <span class="header__navLines__line header__navLines__line--mid"></span>

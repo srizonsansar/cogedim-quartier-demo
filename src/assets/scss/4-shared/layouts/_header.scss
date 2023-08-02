@@ -22,7 +22,12 @@
         }
     }
     &__mainBlock{
-        display: none;
+        // display: none;
+    }
+    &__nav{
+        a{
+            color: $color-white;
+        }
     }
     &__navLines{
         display: flex;

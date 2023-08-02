@@ -3,26 +3,17 @@ import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
 
-    const [burgerOpen, setBurgerOpen] = useState(false); 
-
-    const handleBurgerClick = () => {
-        setBurgerOpen((prevState) => !prevState);
-    };
-
     return (
-        <div className="nav">
-            <div className="nav__container">
-                <div className={`nav__links ${burgerOpen ? 'nav__links--open' : ''}`}>
-                    <NavLink to="/" className="nav__links__btn">
-                        Visiter votre futur quartier
-                    </NavLink>
-                    <NavLink to="/" className="nav__links__btn">
-                        Vivre à Cormeilles-en-Parisis
-                    </NavLink>
-                    <NavLink to="/" className="nav__links__btn">
-                        Suivre les actus
-                    </NavLink>
-                </div>
+        <div className="header__mainBlock">
+            <div className="header__nav">
+                <NavLink to="/">Le Quartier</NavLink>
+                <NavLink to="/">Les Résidences</NavLink>
+                <NavLink to="/">Les Actualités</NavLink>
+            </div>
+            <div class="header__social">
+                <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">F</a>
+                <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">T</a>
+                <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">I</a>
             </div>
         </div>
     );
