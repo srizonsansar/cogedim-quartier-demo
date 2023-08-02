@@ -1,8 +1,15 @@
 import React from 'react';
 
+// Pages and Blocks
+import Header from '../common/Header';
+import Footer from '../common/Footer';
+
 const LesResidences = () => {
   return(
-    <section>This is Les Residences Page</section>
+    <main className="residence-page">
+      <Header />
+      <Footer />
+    </main>
   )
 }
 
