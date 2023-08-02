@@ -10,7 +10,7 @@ const Navigation = () => {
                 <NavLink to="/">Les Résidences</NavLink>
                 <NavLink to="/">Les Actualités</NavLink>
             </div>
-            <div class="header__social">
+            <div className="header__social">
                 <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">F</a>
                 <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">T</a>
                 <a href="https://www.facebook.com/" rel="noreferrer" className="header__social__item" target="_blank">I</a>

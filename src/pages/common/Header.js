@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import Navigation from '../common/Navigation';
 import MainLogo from '../../assets/images/logo-cogedim.svg';
 
@@ -27,9 +27,9 @@ const Header = () => {
                 <a href="/" className="header__logo"><img src={MainLogo} className="header__logo__img" alt="Cogedim" /></a>
                 <Navigation />
                 <div className="header__navLines" onClick={showNavBlock}>
-                    <span class="header__navLines__line"></span>
-                    <span class="header__navLines__line header__navLines__line--mid"></span>
-                    <span class="header__navLines__line"></span>
+                    <span className="header__navLines__line"></span>
+                    <span className="header__navLines__line header__navLines__line--mid"></span>
+                    <span className="header__navLines__line"></span>
                 </div>
             </div>
         </header>
