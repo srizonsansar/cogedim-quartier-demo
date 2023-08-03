@@ -1,0 +1,252 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100%;
+    background-color: $color-purple;
+    padding: 25px 0;
+    &__container{
+        @extend %container;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    &__logo{
+        position: absolute;
+        left: calc(50% - 55px);
+        top: 0;
+        @include resp('md'){
+            left: 20px;
+        }
+        &__img{
+            width: 110px;
+            height: 110px;
+            transition: width $time-fast, height $time-fast;
+            @include resp('md'){
+                width: 135px;
+                height: 135px;
+            }
+            @include resp('lg'){
+                width: 160px;
+                height: 160px;
+            }
+            &.smLogo{
+                width: 70px;
+                height: 70px;
+                @include resp('md'){
+                    width: 80px;
+                    height: 80px;
+                }
+                @include resp('lg'){
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+    &__mainBlock{
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: $color-purple;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left $time-fast;
+        @include resp('md'){
+            position: static;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-left: 25%;
+        }
+        &.visible{
+            left: 0;
+        }
+        &__closeNav{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            @include resp('md'){
+                display: none;
+            }
+            svg{
+                width: 16px;
+                height: 16px;
+                fill: $color-white;
+            }
+        }
+    }
+    &__nav{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
+        @include resp('md'){
+            flex-direction: row;
+            padding-bottom: 0;
+        }
+        &__item{
+            position: relative;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include resp('md'){
+                margin: 0 40px 0 0;
+            }
+            @include resp('lg'){
+                margin-right: 60px;
+            }
+            & > a{
+                position: relative;
+                color: $color-white;
+                text-decoration: none;
+                padding: 5px 0;
+                text-transform: uppercase;
+                font-weight: $fw-medium;
+                @include resp('lg'){
+                    padding-bottom: 7px;
+                }
+                &:before{
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: $color-white;
+                    transition: width $time-fast;
+                }
+                &:last-child{
+                    margin: 0;
+                }
+                &.active{
+                    &:before{
+                        width: 100%;
+                    }
+                }
+                &:hover{
+                    &:before{
+                        @include resp('lg'){
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            &--hasSubMenu{
+                &:hover{
+                    .header{
+                        &__nav{
+                            &__subMenu{
+                                @include resp('lg'){
+                                    top: 31px;
+                                    opacity: 1;
+                                    pointer-events: all;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__subMenu{
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            font-size: fz(13);
+            @include resp('md'){
+                position: absolute;
+                top: 40px;
+                left: 0;
+                background-color: $color-purple;
+                padding: 15px;
+                border-radius: 5px;
+                font-size: fz(14);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity $time-fast, top $time-fast;
+            }
+            a{
+                color: $color-white;
+                text-decoration: none;
+                padding-bottom: 10px;
+                display: block;
+                &:last-child{
+                    padding-bottom: 0;
+                }
+                &:hover{
+                    @include resp('lg'){
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &.visible{
+                opacity: 1;
+                pointer-events: all;
+                top: 31px;
+            }
+        }
+    }
+    &__social{
+        display: flex;
+        justify-content: center;
+        &__item{
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: $color-white;
+            margin-right: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            transition: border-color $time-fast, background-color $time-fast;
+            @include resp('md'){
+                margin-right: 10px;
+            }
+            @include resp('lg'){
+                margin-right: 15px;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+            svg{
+                width: 14px;
+                height: 14px;
+                fill: $color-purple;
+                transition: fill $time-fast;
+            }
+            &:hover{
+                @include resp('lg'){
+                    background-color: $color-purple;
+                    border-color: $color-white;
+                }
+                svg{
+                    @include resp('lg'){
+                        fill: $color-white;
+                    }
+                }
+            }
+        }
+    }
+    &__navLines{
+        display: flex;
+        flex-direction: column;
+        @include resp('md'){
+            display: none;
+        }
+        &__line{
+            width: 28px;
+            height: 3px;
+            background-color: $color-white;
+            border-radius: 999px;
+            &--mid{
+                margin: 6px 0;
+            }
+        }
+    }
+}

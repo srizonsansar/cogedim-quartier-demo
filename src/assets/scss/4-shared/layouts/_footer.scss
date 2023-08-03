@@ -1,0 +1,7 @@
+.footer{
+    height: 400px;
+    background-color: lighten($color-purple, 5%);
+    display: flex;
+    align-items: center;
+    color: $color-white;
+}

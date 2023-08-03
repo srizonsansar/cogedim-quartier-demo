@@ -1,0 +1,22 @@
+// Line Breaks
+.break{
+    display: block;
+}
+
+// Bottom Space
+.bottom-space{
+    margin-bottom: 60px;
+    @include resp('md'){
+        margin-bottom: 80px;
+    }
+    @include resp('lg'){
+        margin-bottom: 100px;
+    }
+}
+
+// No Scroll
+body{
+    &.no-scroll{
+        overflow: hidden;
+    }
+}
