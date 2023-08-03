@@ -1,7 +1,80 @@
 .footer{
-    height: 400px;
-    background-color: lighten($color-purple, 5%);
-    display: flex;
-    align-items: center;
-    color: $color-white;
+    padding-bottom: 20px;
+    @include resp('md'){
+        padding-bottom: 25px;
+    }
+    @include resp('lg'){
+        padding-bottom: 30px;
+    }
+    &__topLinks{
+        background-color: $color-purple;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        color: $color-white;
+        margin-bottom: 20px;
+        @include resp('sm'){
+            padding: 20px 15px;
+        }
+        @include resp('md'){
+            margin-bottom: 25px;
+        }
+        @include resp('xl'){
+            padding: 30px 15px;
+            margin-bottom: 30px;
+        }
+        &__item{
+            margin: 0 10px;
+            cursor: pointer;
+            @include resp('md'){
+                margin: 0 20px;
+            }
+            &:hover{
+                @include resp('lg'){
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &__social{
+        display: flex;
+        justify-content: center;
+        &__item{
+            background-color: $color-purple;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            border: 2px solid transparent;
+            transition: background-color $time-fast, color $time-fast;
+            @include resp('lg'){
+                width: 36px;
+                height: 36px;
+            }
+            svg{
+                width: 14px;
+                height: 14px;
+                fill: $color-white;
+                transition: fill $time-fast;
+                @include resp('lg'){
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+            &:hover{
+                @include resp('lg'){
+                    background-color: $color-white;
+                    border-color: $color-purple;
+                }
+                svg{
+                    @include resp('lg'){
+                        fill: $color-purple;
+                    }
+                }
+            }
+        }
+    }
 }
