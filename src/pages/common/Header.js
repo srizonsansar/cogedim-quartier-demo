@@ -37,8 +37,14 @@ const Header = () => {
         } else {
             setIsScrolled(false)
         }
-
     }
+    // Calling Function
+    useEffect( () => {
+        window.addEventListener('scroll', handleOnScroll)
+        return () => {
+            window.removeEventListener('scroll', handleOnScroll)
+        }
+    }, [])
 
     // Nav on Tab
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -49,14 +55,14 @@ const Header = () => {
         const subMenuItem = document.querySelector('.header__nav__subMenu')
         if(windowWidth > 849 && windowWidth < 1200 ){
             subMenuItem.classList.toggle('visible')
+        } else {
+            subMenuItem.classList.remove('visible')
         }
     }
-
-    // Calling Function
-    useEffect( () => {
-        window.addEventListener('scroll', handleOnScroll)
+    React.useEffect( () => {
+        window.addEventListener('resize', handleWinResize);
         return () => {
-            window.removeEventListener('scroll', handleOnScroll)
+            window.removeEventListener('resize', handleWinResize);
         }
     }, [])
 
