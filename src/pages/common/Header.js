@@ -9,7 +9,6 @@ import IconTwitter from '../svg-icons/Icon-Twitter';
 import IconInstagram from '../svg-icons/Icon-Instagram';
 
 const Header = () => {
-
     const location = useLocation();
 
     // Show Nav on HamBurger and Hide on Cross Click
@@ -59,7 +58,7 @@ const Header = () => {
             subMenuItem.classList.remove('visible')
         }
     }
-    React.useEffect( () => {
+    useEffect( () => {
         window.addEventListener('resize', handleWinResize);
         return () => {
             window.removeEventListener('resize', handleWinResize);

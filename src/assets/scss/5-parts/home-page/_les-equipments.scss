@@ -1,0 +1,35 @@
+.lesEquipments{
+    &__container{
+        @extend %container;
+    }
+    &__slider{
+        .slick-track{
+            display: flex;
+            .slick-slide{
+                height: auto;
+                & > div{
+                    display: flex;
+                    height: 100%;
+                }
+            }
+        }
+        &__item{
+            height: 100%;
+        }
+        &__pic{
+            height: 100%;
+            &__img{
+                @extend %image;
+            }
+        }
+        .slick-dots{
+            padding-top: 20px;
+            @include resp('md'){
+                padding-top: 25px;
+            }
+            @include resp('lg'){
+                padding-top: 30px;
+            }
+        }
+    }
+}

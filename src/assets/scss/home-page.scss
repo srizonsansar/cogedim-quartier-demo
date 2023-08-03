@@ -1,9 +1,12 @@
+@import '../../../node_modules/slick-carousel/slick/slick.scss';
+
 // Basic
 @import '1-settings/variables';
 @import '1-settings/mixin';
 @import '1-settings/functions';
 
 // Libraries
+@import '2-libraries/slick-dots';
 
 // Objects
 @import '3-objects/formatting';
@@ -11,4 +14,5 @@
 
 // Home Blocks
 @import '5-parts/home-page/intro';
+@import '5-parts/home-page/les-equipments';
 @import '5-parts/home-page/form';

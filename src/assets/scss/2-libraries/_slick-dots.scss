@@ -1,0 +1,32 @@
+.slick-dots{
+    display: flex!important;
+    justify-content: center;
+    li{
+        margin-right: 5px;
+        button{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            font-size: fz(8);
+            text-indent: -9999px;
+            cursor: pointer;
+            padding: 0;
+            display: block;
+            transition: background-color $time-fast;
+            &:hover{
+                @include resp('lg'){
+                    background-color: lighten($color-purple, 25%);
+                }
+            }
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+        &.slick-active{
+            button{
+                background-color: $color-purple;
+            }
+        }
+    }
+}
