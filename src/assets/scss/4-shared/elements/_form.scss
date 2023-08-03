@@ -13,7 +13,16 @@
             font-weight: $fw-medium;
         }
     }
-
+    &__row{
+        @include resp('md'){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 30px;
+        }
+        @include resp('lg'){
+            gap: 15px 40px;
+        }
+    }
     &__label {
         display: block;
         font-size: fz(16);
@@ -22,6 +31,7 @@
             display: inline-block;
             font-size: fz(16);
             margin-right: 16px;
+            font-weight: $fw-light;
         }
     }
 
@@ -29,15 +39,21 @@
         width: 100%;
         font-size: fz(16);
         color: $color-black;
-        padding: 12px 20px;
-        background-color: $color-white;
+        padding: 15px 20px;
+        background-color: $color-grey-light;
         border: none;
         outline: none;
-        border-radius: 5px;
+        border-radius: 999px;
         -webkit-box-shadow: none;
         -webkit-appearance: none;
         box-shadow: none;
         -moz-appearance: textfield;
+        @include resp('md'){
+            padding: 18px 24px;
+        }
+        @include resp('lg'){
+            padding: 20px 28px;
+        }
     }
 
     &__required {
@@ -49,10 +65,15 @@
         display: none;
         text-align: center;
         font-size: fz(20);
-        color: $color-black;
+        color: $color-purple;
         font-weight: $fw-sbold;
-        border: 2px solid $color-black;
         padding: 15px;
+        @include resp('md'){
+            font-size: fz(24);
+        }
+        @include resp('lg'){
+            font-size: fz(28);
+        }
         &.visible{
             display: block;
         }
@@ -62,27 +83,23 @@
     //////////////////////////////////////////// SUBMIT ////////////////////////////////////////////
 
     &__submit {
-
+        display: flex;
+        justify-content: center;
+        padding: 5px 0 10px;
+        @include resp('md'){
+            padding-top: 15px;
+        }
+        @include resp('lg'){
+            padding-top: 30px;
+        }
         &__button {
-            display: block;
-            width: 100%;
-            max-width: 200px;
-            padding: 10px;
-            margin: 25px auto 10px;
-            background-color: $color-black;
-            color: $color-white;
-            font-size: fz(14);
-            text-align: center;
-            text-transform: uppercase;
-            border: none;
-            outline: none;
-            border-radius: 0;
-            cursor: pointer;
-            transition: background-color $time-normal, border $time-normal;
-
-            &:hover {
-                @include resp('lg') {
-                    background-color: lighten($color-black, 20%);
+            @extend %button-regular;
+            @extend %button-regular-purple;
+            border: 2px solid transparent;
+            &:hover{
+                @extend %button-regular-white-hover;
+                @include resp('lg'){
+                    border-color: $color-purple;
                 }
             }
         }
@@ -102,10 +119,11 @@
             &:checked + label,
             &:not(:checked) + label {
                 position: relative;
-                padding: 2px 0 0 25px;
+                padding: 2px 0 0 28px;
                 margin: 0 16px 0 0;
                 cursor: pointer;
                 font-size: fz(16);
+                font-weight: $fw-light;
                 display: inline-block;
 
                 &::before {
@@ -116,8 +134,7 @@
                     width: 19px;
                     height: 19px;
                     border-radius: 999px;
-                    background-color: $color-white;
-                    border: 1px solid $color-black;
+                    background-color: $color-grey-light;
                 }
 
                 &::after {
@@ -151,11 +168,12 @@
         &[type='checkbox'] {
             &:checked + label,
             &:not(:checked) + label {
-                font-size: fz(12);
+                padding-top: 0;
 
                 &::before {
                     top: 0;
                     border-radius: 0;
+                    border: 1px solid $color-purple;
                 }
 
                 &::after {
@@ -170,16 +188,18 @@
     //////////////////////////////////////////// PLACEHOLDER ////////////////////////////////////////////
 
     ::-webkit-input-placeholder {
-    color: inherit;
+        color: inherit;
+        opacity: .5;
     }
 
     ::-moz-placeholder {
-    color: inherit;
-    opacity: 1;
+        color: inherit;
+        opacity: .5;
     }
 
     :-ms-input-placeholder {
-    color: $color-black;
+        color: $color-black;
+        opacity: .5;
     }
 
 

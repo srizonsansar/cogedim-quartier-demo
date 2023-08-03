@@ -1,5 +1,17 @@
-.mainFormBlock{
-    display: flex;
-    align-items: center;
-    height: 500px;
+.contactFormBlock{
+    padding-top: 60px;
+    @include resp('md'){
+        padding-top: 80px;
+    }
+    @include resp('lg'){
+        padding-top: 100px;
+    }
+    &__container{
+        @extend %container;
+    }
+    &__inner{
+        &.hidden{
+            display: none;
+        }
+    }
 }

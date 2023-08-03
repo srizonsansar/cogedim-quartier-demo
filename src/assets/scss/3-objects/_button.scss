@@ -1,0 +1,25 @@
+%button-regular{
+    border-radius: 999px;
+    padding: 14px 30px;
+    font-size: fz(16);
+    font-weight: $fw-medium;
+    border: none;
+    cursor: pointer;
+    transition: border-color $time-fast, background-color $time-fast, color $time-fast;
+    @include resp('md'){
+        padding: 15px 40px;
+    }
+    @include resp('xl'){
+        padding: 16px 50px;
+    }
+}
+%button-regular-purple{
+    background-color: $color-purple;
+    color: $color-white;
+}
+%button-regular-white-hover{
+    @include resp('lg'){
+        background-color: $color-white;
+        color: $color-purple;
+    }
+}
