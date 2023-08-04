@@ -1,7 +1,81 @@
 .homeIntro{
-    height: 500px;
-    background-color: darken($color-purple, 5%);
-    display: flex;
-    align-items: center;
-    color: $color-white;
+    &__container{
+        @extend %container;
+        position: relative;
+        @include resp('md'){
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    }
+    &__logo{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 35px;
+        @include resp('md'){
+            position: absolute;
+            left: calc(50% - 75px);
+            top: calc(50% - 88px);
+            padding-bottom: 0;
+        }
+        @include resp('lg'){
+            left: calc(50% - 120px);
+            top: calc(50% - 140px);
+        }
+        &__img{
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            @include resp('md'){
+                max-width: none;
+                width: 150px;
+            }
+            @include resp('lg'){
+                width: 240px;
+            }
+        }
+    }
+    &__textBlock{
+        padding-bottom: 30px;
+        @include resp('md'){
+            width: 50%;
+            padding: 0 80px 0 0;
+        }
+        @include resp('lg'){
+            padding-right: 150px;
+        }
+        &__text{
+            line-height: 1.5;
+            padding-bottom: 20px;
+        }
+        &__title{
+            font-size: fz(32);
+            font-weight: $fw-light;
+            text-align: center;
+            @include resp('md'){
+                text-align: left;
+            }
+            @include resp('lg'){
+                font-size: fz(44);
+            }
+            .color{
+                color: $color-green-ocean;
+            }
+        }
+    }
+    &__pic{
+        @include resp('md'){
+            width: 50%;
+        }
+        &__img{
+            @extend %image;
+            height: 320px;
+            @include resp('sm'){
+                height: 480px;
+            }
+            @include resp('lg'){
+                height: 550px;
+            }
+        }
+    }
 }

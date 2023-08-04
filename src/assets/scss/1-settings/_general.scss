@@ -14,13 +14,16 @@ body {
   line-height: 1.2;
   font-weight: 400;
   color: $color-black;
+  padding-top: 71px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   @include resp('md'){
     font-size: fz(15);
+    padding-top: 78px;
   }
   @include resp('lg') {
     font-size: fz(16);
+    padding-top: 81px;
   }
 
   strong {
