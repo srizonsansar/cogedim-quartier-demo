@@ -16,6 +16,7 @@
             position: absolute;
             left: calc(50% - 75px);
             top: calc(50% - 88px);
+            z-index: 1;
             padding-bottom: 0;
         }
         @include resp('lg'){
@@ -64,8 +65,31 @@
         }
     }
     &__pic{
+        position: relative;
         @include resp('md'){
             width: 50%;
+        }
+        &__play{
+            position: absolute;
+            top: calc(50% - 40px);
+            left: calc(50% - 40px);
+            color: $color-white;
+            font-weight: $fw-sbold;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid $color-white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color $time-fast, color $time-fast;
+            &:hover{
+                @include resp('lg'){
+                    border-color: $color-green-ocean;
+                    color: $color-green-ocean;
+                }
+            }
         }
         &__img{
             @extend %image;
@@ -75,6 +99,58 @@
             }
             @include resp('lg'){
                 height: 550px;
+            }
+        }
+    }
+    // Video Popup
+    .videoPopup{
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        padding: 20px;
+        width: 100%;
+        height: 100%;
+        background-color: transparentize($color-black, .25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity $time-fast;
+        &.active{
+            opacity: 1;
+            pointer-events: all;
+        }
+        &__container{
+            position: relative;
+            background-color: $color-white;
+            padding: 10px;
+            width: 100%;
+            max-width: 600px;
+            iframe{
+                aspect-ratio: 16/9;
+                width: 100%;
+                display: block;
+            }
+        }
+        &__close{
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background-color: $color-white;
+            color: $color-black;
+            font-size: fz(12);
+            font-weight: $fw-sbold;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: color $time-fast, background-color $time-fast;
+            &:hover{
+                @include resp('lg'){
+                    background-color: $color-purple;
+                    color: $color-white;
+                }
             }
         }
     }
